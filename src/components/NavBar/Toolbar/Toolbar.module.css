@@ -1,0 +1,28 @@
+.Toolbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 54px;
+    width: 100%;
+    background-color: #8F5C2c;
+    color: white;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    padding: 0 0 0 20px;
+    box-sizing: border-box;
+    z-index: 50;
+    margin-bottom: 72px;
+}
+.Navitems{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+@media (max-width:700px){
+    .Navitems{
+        display: none;
+    }
+}

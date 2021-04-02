@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import Post from '../../components/Post/Post';
 import FullPost from '../../components/FullPost/FullPost';
 import NewPost from '../../components/NewPost/NewPost';
-import './Blog.css';
+import classes from './Blog.module.css';
 import axios from '../../axios'
+import Toolbar from '../../components/NavBar/Toolbar/Toolbar'
 class Blog extends Component {
     state={
         posts:[],
@@ -46,7 +47,8 @@ class Blog extends Component {
         }
         return (
             <div>
-                <section className="Posts">
+                <Toolbar />
+                <section className={classes.Posts}>
                     {posts}
                 </section>
                 <section>

@@ -1,7 +1,7 @@
-import axios from 'axios';
+import axios from '../../axios';
 import React, { Component } from 'react';
 
-import './NewPost.css';
+import classes from './NewPost.module.css';
 
 class NewPost extends Component {
     state = {
@@ -17,13 +17,13 @@ class NewPost extends Component {
         }
         axios.post('posts',data).then(
             response=>{
-                console.log(response);
+                // console.log(response);
             }
         )
     }   
     render () {
         return (
-            <div className="NewPost">
+            <div className={classes.NewPost}>
                 <h1>Add a Post</h1>
                 <label>Title</label>
                 <input type="text" value={this.state.title} onChange={(event) => this.setState({title: event.target.value})} />

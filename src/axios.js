@@ -6,10 +6,10 @@ const instance=axios.create({
 instance.defaults.headers.common['Authorization']='AUTH TOKEN from Axios INSTANCE';
 
 instance.interceptors.request.use(request=>{
-    console.log(request,'\nprinted from instance intercepter');
+    // console.log(request,'\nprinted from instance intercepter');
     return request;
 },error=>{
-    console.log(error);
+    // console.log(error);
     return Promise.reject(error)
 })
 export default instance;
