@@ -12,7 +12,7 @@ const Toolbar=(props)=>{
             <Logo />
             <div className={classes.Navitems}>
                 <Navitem active link="/">Home</Navitem>
-                <Navitem link="/burgers">Burgers</Navitem>
+                <Navitem link="/CreatPost">Create Post</Navitem>
                 <Navitem link="/about">About</Navitem>
             </div>
         </div>
