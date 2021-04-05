@@ -2,6 +2,7 @@ import { Component } from "react";
 import Post from '../../components/Post/Post'
 import classes from './Posts.module.css'
 import axios from '../../axios'
+import { Link } from "react-router-dom";
 
 class Posts extends Component{
     
@@ -11,7 +12,7 @@ class Posts extends Component{
     }
 
     componentDidMount=()=>{
-        console.log(this.props)
+        console.log(this.props);
         axios.get('posts').then((response)=>{
             // console.log(response);
             const posts=response.data.slice(0,10);
@@ -39,11 +40,21 @@ class Posts extends Component{
         let posts=<p style={{'textAlign':'center'}}>Something Went Wrong!</p>
         if(!this.state.error){
             posts=this.state.posts.map(post=>{
-                return <Post
-                    key={post.id}
-                    title={post.title}
-                    author={post.author}
-                    clicked={()=>this.selectPostHandler(post.id)}/>
+                return (
+                    <Link
+                    style={{ color: 'inherit', textDecoration: 'inherit'}} 
+                        // to={
+                        //     {
+                        //         pathname: '/full-post/'+post.id,
+                        //     }
+                        // }
+                        to={'/full-post/'+post.id}
+                        key={post.id}>
+                        <Post
+                            title={post.title}
+                            author={post.author}
+                            clicked={()=>this.selectPostHandler(post.id)}/>
+                    </Link>)
             });
         }
         return(

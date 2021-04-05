@@ -6,6 +6,7 @@ import Backdrops from '../../components/Backdrops/Backdrop'
 import { Route } from 'react-router-dom';
 import Posts from '../Posts/Posts';
 import NewPost from '../NewPost/NewPost'
+import FullPost from '../FullPost/FullPost'
 class Blog extends Component {
     state={
         showSideDrawer:false
@@ -32,6 +33,7 @@ class Blog extends Component {
                 <Route path='/' exact render={()=><h1>Home</h1>} /> */}
                 <Route path="/" exact component={Posts}/>
                 <Route path="/create-post" exact component={NewPost}/>
+                <Route path="/full-post/:id" exact component={FullPost}></Route>
             </div>
         );
     }

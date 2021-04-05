@@ -12,8 +12,8 @@ const SideDrawer=(props)=>{
            <Hamberger clicked={props.toggle}
                         open={props.show}/>
             <Navitem link="/">Home</Navitem>
-            <Navitem link="/FullPost">FullPost</Navitem>
-            <Navitem link="/NewPost">NewPost</Navitem>
+            <Navitem link="/create-post">Create Post</Navitem>
+            <Navitem link="/about">About</Navitem>
         </div>
     );
 };
