@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 // import axios from '../../axios'
 import Toolbar from '../../components/NavBar/Toolbar/Toolbar'
-import Posts from '../Posts/Posts';
-import { Route } from 'react-router-dom';
 import SideDrawer from '../../components/NavBar/SideDrawer/SideDrawer';
 import Backdrops from '../../components/Backdrops/Backdrop'
+import { Route } from 'react-router-dom';
+import Posts from '../Posts/Posts';
+import NewPost from '../NewPost/NewPost'
 class Blog extends Component {
     state={
         showSideDrawer:false
@@ -27,8 +28,10 @@ class Blog extends Component {
                         show={this.state.showSideDrawer}
                         cancel={this.toggleSideDrawer}/>
 
-                <Route path='/' exact render={()=>{<h1>Home</h1>}} />
-                <Route path='/' render={()=>{<h1>Home 2</h1>}} />
+                {/* <Route path="/" render={()=><h1 style={{'marginTop':'100px'}}>Home2</h1>} />
+                <Route path='/' exact render={()=><h1>Home</h1>} /> */}
+                <Route path="/" exact component={Posts}/>
+                <Route path="/create-post" exact component={NewPost}/>
             </div>
         );
     }
