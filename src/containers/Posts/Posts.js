@@ -31,9 +31,11 @@ class Posts extends Component{
     }
 
     selectPostHandler=(id)=>{
-        this.setState({
-            selectedPostId:id,
-        })
+        // this.setState({
+        //     selectedPostId:id,
+        // })
+        // push allows you to push a new page into stack  
+        this.props.history.push({pathname: '/full-post/'+id});
     }
     
     render(){
@@ -41,20 +43,22 @@ class Posts extends Component{
         if(!this.state.error){
             posts=this.state.posts.map(post=>{
                 return (
-                    <Link
-                    style={{ color: 'inherit', textDecoration: 'inherit'}} 
-                        // to={
-                        //     {
-                        //         pathname: '/full-post/'+post.id,
-                        //     }
-                        // }
-                        to={'/full-post/'+post.id}
-                        key={post.id}>
+                    // <Link
+                    // style={{ color: 'inherit', textDecoration: 'inherit'}} 
+                    //     // to={
+                    //     //     {
+                    //     //         pathname: '/full-post/'+post.id,
+                    //     //     }
+                    //     // }
+                    //     to={'/full-post/'+post.id}
+                    //     key={post.id}>
                         <Post
+                            key={post.id}
                             title={post.title}
                             author={post.author}
                             clicked={()=>this.selectPostHandler(post.id)}/>
-                    </Link>)
+                    // </Link>
+                )
             });
         }
         return(
