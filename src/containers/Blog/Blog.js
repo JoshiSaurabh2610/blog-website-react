@@ -8,7 +8,8 @@ import Posts from '../Posts/Posts';
 import NewPost from '../NewPost/NewPost';
 class Blog extends Component {
     state={
-        showSideDrawer:false
+        showSideDrawer:false,
+        auth:false,
     }
     
     toggleSideDrawer=()=>{
@@ -32,7 +33,7 @@ class Blog extends Component {
                 <Route path='/' exact render={()=><h1>Home</h1>} /> */}
                 <Switch>
                     <Route path="/posts" component={Posts}/>
-                    <Route path="/create-post" exact component={NewPost}/>
+                    { this.state.auth?<Route path="/create-post" exact component={NewPost}/>:null}
                     <Redirect from='/' to= '/posts' />
                 </Switch>
                 {/* <Route path="/full-post/:id" exact component={FullPost}></Route>  Moved to posts */}

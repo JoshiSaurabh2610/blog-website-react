@@ -13,6 +13,7 @@ class NewPost extends Component {
     }
 
     componentDidMount(){
+        // if unauth => Redirect to ='/posts/'
         console.log(this.props);
     }
     
