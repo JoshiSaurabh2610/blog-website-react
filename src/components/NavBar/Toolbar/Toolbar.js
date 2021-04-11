@@ -13,7 +13,7 @@ const Toolbar=(props)=>{
                             open={props.show}/>
                 <Logo />
                 <div className={classes.Navitems}>
-                    <Navitem link="/">Home</Navitem>
+                    <Navitem link="/posts">Posts</Navitem>
                     <Navitem link="/create-post">Create Post</Navitem>
                     <Navitem link="/about">About</Navitem>
                 </div>

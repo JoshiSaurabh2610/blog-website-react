@@ -3,10 +3,9 @@ import React, { Component } from 'react';
 import Toolbar from '../../components/NavBar/Toolbar/Toolbar'
 import SideDrawer from '../../components/NavBar/SideDrawer/SideDrawer';
 import Backdrops from '../../components/Backdrops/Backdrop'
-import { Route } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import Posts from '../Posts/Posts';
-import NewPost from '../NewPost/NewPost'
-import FullPost from '../FullPost/FullPost'
+import NewPost from '../NewPost/NewPost';
 class Blog extends Component {
     state={
         showSideDrawer:false
@@ -31,9 +30,12 @@ class Blog extends Component {
 
                 {/* <Route path="/" render={()=><h1 style={{'marginTop':'100px'}}>Home2</h1>} />
                 <Route path='/' exact render={()=><h1>Home</h1>} /> */}
-                <Route path="/" exact component={Posts}/>
-                <Route path="/create-post" exact component={NewPost}/>
-                <Route path="/full-post/:id" exact component={FullPost}></Route>
+                <Switch>
+                    <Route path="/posts" component={Posts}/>
+                    <Route path="/create-post" exact component={NewPost}/>
+                    <Redirect from='/' to= '/posts' />
+                </Switch>
+                {/* <Route path="/full-post/:id" exact component={FullPost}></Route>  Moved to posts */}
             </div>
         );
     }

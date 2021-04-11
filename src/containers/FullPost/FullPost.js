@@ -7,11 +7,13 @@ class FullPost extends Component {
     state={
         postLoaded:null
     }
-    componentDidMount(){
-        console.log(this.props);
+    componentDidUpdate(){
+        // console.log(this.props);
+        // we set up path='/posts/:id' <- here id is param 
         if(this.props.match.params.id){
-            if(!this.state.postLoaded||(this.state.postLoaded&&this.props.id!==this.state.postLoaded.id)){
-                axios.get('posts/'+this.props.match.params.id).then(
+            // if(!this.state.postLoaded||(this.state.postLoaded&&this.props.match.params.id!=this.state.postLoaded.id)){
+            if(!this.state.postLoaded||(this.state.postLoaded&& +this.props.match.params.id !== this.state.postLoaded.id)){
+                axios.get('/posts/'+this.props.match.params.id).then(
                     (response)=>{
                         this.setState({
                             postLoaded:response.data

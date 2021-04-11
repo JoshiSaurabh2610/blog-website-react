@@ -3,7 +3,7 @@
     align-items: center;
     margin: 0px;
     box-sizing: border-box;
-    width: 100%;
+    width: 750px;
     cursor: pointer;
 }
 .NavigationItem a{
