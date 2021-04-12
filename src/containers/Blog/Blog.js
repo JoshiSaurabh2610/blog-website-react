@@ -3,9 +3,17 @@ import React, { Component } from 'react';
 import Toolbar from '../../components/NavBar/Toolbar/Toolbar'
 import SideDrawer from '../../components/NavBar/SideDrawer/SideDrawer';
 import Backdrops from '../../components/Backdrops/Backdrop'
-import { Redirect, Route, Switch } from 'react-router-dom';
+import {Route, Switch } from 'react-router-dom';
+
 import Posts from '../Posts/Posts';
-import NewPost from '../NewPost/NewPost';
+// import NewPost from '../NewPost/NewPost';
+import asyncComponent from '../../hoc/asyncComponent';
+
+const AsyncNewPost=asyncComponent(()=>{
+    return import('../NewPost/NewPost');
+})
+
+
 class Blog extends Component {
     state={
         showSideDrawer:false,
@@ -33,8 +41,9 @@ class Blog extends Component {
                 <Route path='/' exact render={()=><h1>Home</h1>} /> */}
                 <Switch>
                     <Route path="/posts" component={Posts}/>
-                    { this.state.auth?<Route path="/create-post" exact component={NewPost}/>:null}
-                    <Redirect from='/' to= '/posts' />
+                    {<Route path="/create-post" exact component={AsyncNewPost}/>}
+                    {/* <Redirect from='/' to= '/posts' /> */}
+                    <Route render={()=><h1>NOT FOUND</h1>}/>
                 </Switch>
                 {/* <Route path="/full-post/:id" exact component={FullPost}></Route>  Moved to posts */}
             </div>

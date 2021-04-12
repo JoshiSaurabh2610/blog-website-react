@@ -1,15 +1,14 @@
 import axios from '../../axios';
 import React, { Component } from 'react';
-
 import classes from  './FullPost.module.css';
 
 class FullPost extends Component {
+
     state={
         postLoaded:null
     }
-    componentDidUpdate(){
-        // console.log(this.props);
-        // we set up path='/posts/:id' <- here id is param 
+
+    loadData(){
         if(this.props.match.params.id){
             // if(!this.state.postLoaded||(this.state.postLoaded&&this.props.match.params.id!=this.state.postLoaded.id)){
             if(!this.state.postLoaded||(this.state.postLoaded&& +this.props.match.params.id !== this.state.postLoaded.id)){
@@ -22,6 +21,17 @@ class FullPost extends Component {
                 )
             }
         }
+    }
+    componentDidMount(){
+        this.loadData();
+    }
+    
+    componentDidUpdate(){
+        // console.log(this.props);
+        // we set up path='/posts/:id' <- here id is param 
+        
+        this.loadData()
+
     }
 
     deleteHandler=()=>{
